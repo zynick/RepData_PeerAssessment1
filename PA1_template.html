@@ -66,7 +66,7 @@ img {
 
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
-<pre class="r"><code>data &lt;- read.table(unz('repdata_data_activity.zip', 'activity.csv'),
+<pre class="r"><code>data &lt;- read.table(unz('activity.zip', 'activity.csv'),
                    header=TRUE, sep=&quot;,&quot;, stringsAsFactors=F,
                    colClasses=c('integer', 'Date', 'integer'))</code></pre>
 </div>
@@ -92,15 +92,13 @@ plot(steps.per.interval$x, type='l')</code></pre>
 <h2>Imputing missing values</h2>
 <pre class="r"><code>max.value.count &lt;- sum(is.na(data$steps))</code></pre>
 <p>The total number of missing values in the dataset (i.e. the total number of rows with NAs) is 2304.</p>
-<div id="use-mean-for-that-5-minute-interval-to-fill-all-of-the-missing-values." class="section level4">
-<h4>Use mean for that 5-minute interval to fill all of the missing values.</h4>
+<p>Using mean for that 5-minute interval to fill all of the missing values.</p>
 <pre class="r"><code>rounded.value.for.interval &lt;- function(interval) {
   round(steps.per.interval$x[steps.per.interval$Group.1 == interval])
 }
 
 data.tidy &lt;- data
 data.tidy$steps[is.na(data$steps)] &lt;- sapply(data$interval[is.na(data$steps)], rounded.value.for.interval)</code></pre>
-</div>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

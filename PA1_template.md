@@ -5,7 +5,7 @@
 
 
 ```r
-data <- read.table(unz('repdata_data_activity.zip', 'activity.csv'),
+data <- read.table(unz('activity.zip', 'activity.csv'),
                    header=TRUE, sep=",", stringsAsFactors=F,
                    colClasses=c('integer', 'Date', 'integer'))
 ```
@@ -60,7 +60,7 @@ max.value.count <- sum(is.na(data$steps))
 
 The total number of missing values in the dataset (i.e. the total number of rows with NAs) is 2304.
 
-#### Use mean for that 5-minute interval to fill all of the missing values.
+Using mean for that 5-minute interval to fill all of the missing values.
 
 
 ```r

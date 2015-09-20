@@ -9,7 +9,7 @@ output:
 ## Loading and preprocessing the data
 
 ```{r}
-data <- read.table(unz('repdata_data_activity.zip', 'activity.csv'),
+data <- read.table(unz('activity.zip', 'activity.csv'),
                    header=TRUE, sep=",", stringsAsFactors=F,
                    colClasses=c('integer', 'Date', 'integer'))
 ```
